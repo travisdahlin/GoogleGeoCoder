@@ -3,7 +3,7 @@ try
 {
 	String base    = 'https://maps.googleapis.com/maps/api/geocode/xml?address='
     // Ender address [street, city, state]
-	List location  = ['1600 Pennsylvania AVenue', 'Washington', 'DC']
+	List location  = ['1600 Pennsylvania Avenue', 'Washington', 'DC']
 	String encoded = location.collect {URLEncoder.encode(it, 'UTF-8')}.join(/,/)
 	def root       = new XmlSlurper().parse("$base$encoded")
 	def coord      = root.result[0].geometry.location
